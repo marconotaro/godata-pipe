@@ -65,20 +65,20 @@ for(i in 1:length(godivs)){
     ## nodes belonging to a different ontology =>
     ## the lines below are useful for go.obo.. with go-basic.obo everything should be safe ..
     if(length(root.node(g))>1){
-    	cat("inconsistent nodes found and removed", "\n");
-    	dk.sp <- dijkstra.sp(g, start=roots[i])$distance;
-    	nd <- nd[which(dk.sp!=Inf)];
-    	g <- build.subgraph(nd, g.univ);
-    	## remove inconsistent node to annotation matrix;
-    	ann <- ann[,nodes(g)];
+        cat("inconsistent nodes found and removed", "\n");
+        dk.sp <- dijkstra.sp(g, start=roots[i])$distance;
+        nd <- nd[which(dk.sp!=Inf)];
+        g <- build.subgraph(nd, g.univ);
+        ## remove inconsistent node to annotation matrix;
+        ann <- ann[,nodes(g)];
     }
     cat("status graph:", sep="\t", "\n");
     check.dag.integrity(g, roots[i]);
     supercheck <- numNodes(g) == ncol(ann);
     if(!supercheck){
-    	stop("supercheck: failed, number of nodes and number of class mismatch", "\n");
+        stop("supercheck: failed, number of nodes and number of class mismatch", "\n");
     }else{
-    	cat("supercheck: ok!", "\n");
+        cat("supercheck: ok!", "\n");
     }
 
     ## hold out data
@@ -96,10 +96,10 @@ for(i in 1:length(godivs)){
     # remove proteins without features (if any)
     prs_nofeat <- which(rowSums(W)==0);
     if(length(prs_nofeat)>=1){
-    	W <- W[-prs_nofeat, -prs_nofeat];
-    	ann <- ann[-prs_nofeat,];
-    	testindex <- which(rownames(ann) %in% testindex_name);
-    	cat("genes without features found and removed", "\n");
+        W <- W[-prs_nofeat, -prs_nofeat];
+        ann <- ann[-prs_nofeat,];
+        testindex <- which(rownames(ann) %in% testindex_name);
+        cat("genes without features found and removed", "\n");
     }
     ## storing
     sv <- strsplit(stringv,split="[.,v]")[[1]][2];

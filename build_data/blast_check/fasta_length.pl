@@ -12,13 +12,13 @@ while(<>){
     if($.==1){ print "$_\t"; next;}
     @vals=split(//,$_);
     if($vals[0] eq '>'){
-    	if($curlen>0){
-    		print "$curlen\n";
-    		$curlen=0;
-    		print "$_\t";
-    	}
+        if($curlen>0){
+            print "$curlen\n";
+            $curlen=0;
+            print "$_\t";
+        }
     }else{
-    	$curlen+= ($#vals+1);
+        $curlen+= ($#vals+1);
     }
 }
 if($curlen!=0){ print "$curlen\n"; }

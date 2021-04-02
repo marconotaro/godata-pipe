@@ -28,7 +28,7 @@ while (<IN>){
     my $GOev= $vals[6];
     my $ontology= $vals[8];
     if($GOev=~ /^EXP$|^IDA$|^IPI$|^IMP$|^IGI$|^IEP$|^HTP$|^HDA$|^HMP$|^HGI$|^HEP$/){ ## evidence codes starts with H* are news
-    	print OUT "$uniprotAC\t$GOterm\t$GOev\t$ontology\n";
+        print OUT "$uniprotAC\t$GOterm\t$GOev\t$ontology\n";
     }
 }
 close IN;

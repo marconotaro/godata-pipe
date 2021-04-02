@@ -18,7 +18,7 @@ while(<IN>){
     my $db=$vals[1];
     my $id= $vals[2];
     if($db eq 'STRING'){
-    	$uniprac2stringid{$ac}=$id;
+        $uniprac2stringid{$ac}=$id;
     }
 }
 close IN;
@@ -42,14 +42,14 @@ while(<IN>){
     my $ac=$vals[0];
     $GOterms{$vals[1]}=1;
     if($uniprac2stringid{$ac}){
-    	$pr=$uniprac2stringid{$ac};
+        $pr=$uniprac2stringid{$ac};
     }else{
-    	$pr= "NOTSEEN";
+        $pr= "NOTSEEN";
     }
     if($pr ne "NOTSEEN"){
-    	print OUT "$pr\t$ac\t$vals[1]\t$vals[2]\t$vals[3]\n";
-    	$prmapped{$pr}=1;
-    	$GOmapped{$vals[1]}=1;
+        print OUT "$pr\t$ac\t$vals[1]\t$vals[2]\t$vals[3]\n";
+        $prmapped{$pr}=1;
+        $GOmapped{$vals[1]}=1;
     }
     # print OUT "$pr\t$ac\t$vals[1]\t$vals[2]\t$vals[3]\n";
     $acseen{$ac}=$pr;
@@ -65,9 +65,9 @@ my $totPRmapped= 0;
 open OUT, "> $pf"."$prefix"."_uniprot_unmapped_"."$date.txt";
 foreach my $k (sort{$a cmp $b} keys %acseen){
     if($acseen{$k} eq "NOTSEEN"){
-    	print OUT "$k\n";
+        print OUT "$k\n";
     }elsif($acseen{$k} ne "NOTSEEN"){
-    	$totPRmapped++;
+        $totPRmapped++;
     }
 }
 close OUT;

@@ -35,14 +35,14 @@ while(<IN>){
     my @vals= split(/\>/,$_);
     my @prac= split(/\|/, $vals[1]);
     if($letters[0] eq '>' && $header{$prac[1]}){
-    	$status=1;
-    	$headerescued{$prac[1]}=1;
+        $status=1;
+        $headerescued{$prac[1]}=1;
     }
     if($letters[0] eq '>' && !$header{$prac[1]}){
-    	$status=0;
+        $status=0;
     }
     if($status==1){
-    	print OUT "$_";
+        print OUT "$_";
     }
 }
 close IN;
@@ -52,7 +52,7 @@ close OUT;
 open IN, "> $fileheader";
 foreach my $k (sort{$a cmp $b} keys %header){
     if(!$headerescued{$k}){
-    	print IN "$k\n";
+        print IN "$k\n";
     }
 }
 close IN;

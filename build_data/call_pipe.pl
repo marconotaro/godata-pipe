@@ -16,11 +16,11 @@ my $start= time;
 ## organism nomenclature link: http://www.uniprot.org/help/taxonomy#organism-denomination
 ##    taxon: ncbi taxon ID. It can be one of the following values: 3702, 6239, 9031, 7955, 44689, 7227, 9606, 10090, 10116, 559292
 ##    org: the organism identification code of at most 5 alphanumeric characters used as entry species name in th UniProtKB database.
-##    	 It can be one of the following values: arath, caeel, chick, danre, dicdi, drome, human, mouse, rat, yeast
+##       It can be one of the following values: arath, caeel, chick, danre, dicdi, drome, human, mouse, rat, yeast
 ##    release: date of the *latest* UniProt-GOA release as reported in 'https://www.ebi.ac.uk/GOA#news'
-##    	 It can be written in the following format: <DD><MMM><YY> (eg: 20dec17);
+##       It can be written in the following format: <DD><MMM><YY> (eg: 20dec17);
 ##    stringv: the *current* release version of STRING DB as reported in 'https://string-db.org/cgi/access.pl?footer_active_subpage=archive'
-##    	 It can be written in the following format: v<string.version> (eg: v10.5);
+##       It can be written in the following format: v<string.version> (eg: v10.5);
 
 ## NOTA: obviously 'taxon' 'org' parameters can be related each other. So just the following parameters combinations are possible:
 ##  3702 arath

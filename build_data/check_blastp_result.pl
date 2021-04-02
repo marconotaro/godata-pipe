@@ -18,7 +18,7 @@ while(<IN>){
     my $ac=$uniprot[1];
     my $sid=$vals[1];
     if($vals[2] eq "100.000"){
-    	$string2uniac{$sid}=$ac;
+        $string2uniac{$sid}=$ac;
     }
 }
 close IN;
@@ -43,7 +43,7 @@ close IN;
 my %stringstr=();
 foreach my $k (keys %string2uniac){
     if($stringan{$k}){
-    	$stringstr{$k}=1;
+        $stringstr{$k}=1;
     }
 }
 # foreach my $k (keys %stringstr){print "$k $stringstr{$k}\n"};
@@ -54,10 +54,10 @@ while(<IN>){
     chomp;
     my @vals=split(/\t/,$_);
     if($vals[2] eq "100.000" && $stringstr{$vals[1]}){
-    	my $tmp="*100.000";
-    	print OUT "$vals[0]\t$vals[1]\t$tmp\t$vals[3]\t$vals[4]\t$vals[5]\n";
+        my $tmp="*100.000";
+        print OUT "$vals[0]\t$vals[1]\t$tmp\t$vals[3]\t$vals[4]\t$vals[5]\n";
     }else{
-    	print OUT "$_\n";
+        print OUT "$_\n";
     }
 }
 close IN;

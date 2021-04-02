@@ -32,17 +32,17 @@ open OUT, "> $pf"."$prefix"."_string_goan_noknowledge_"."$rdate".".txt";
 while(<FH>){
     my @vals=split(/\s+/,$_);
     unless($prsold{$vals[0]}){
-    	$prs{$vals[0]}=1;
-    	print OUT $_;
-    	if($vals[3] eq "P"){
-    		$prsbp{$vals[0]}=1;
-    	}
-    	if($vals[3] eq "F"){
-    		$prsmf{$vals[0]}=1;
-    	}
-    	if($vals[3] eq "C"){
-    		$prscc{$vals[0]}=1;
-    	}
+        $prs{$vals[0]}=1;
+        print OUT $_;
+        if($vals[3] eq "P"){
+            $prsbp{$vals[0]}=1;
+        }
+        if($vals[3] eq "F"){
+            $prsmf{$vals[0]}=1;
+        }
+        if($vals[3] eq "C"){
+            $prscc{$vals[0]}=1;
+        }
     }
 }
 close FH;

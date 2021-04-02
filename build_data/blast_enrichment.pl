@@ -18,8 +18,8 @@ while(<IN>){
     my $ac=$uniprot[1];
     my $sid=$vals[1];
     if($vals[2] eq "100.000"){
-    	next if exists $uniac2string{$ac};
-    	$uniac2string{$ac}=$sid;
+        next if exists $uniac2string{$ac};
+        $uniac2string{$ac}=$sid;
     }
 }
 close IN;
