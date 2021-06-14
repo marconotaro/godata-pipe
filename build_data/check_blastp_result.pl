@@ -6,8 +6,8 @@ use Time::HiRes qw(time);
 
 my $start= time;
 
-# issue1: we may have more uniprot-ac for a string-id with 100% of identity (isoform);
-# solution: we can use string ID as key to map all the uniprot-ac
+# issue1: we may have more uniprot-ac for a string-id with 100% of identity
+# solution: we can use string-id as key to map all the uniprot-ac
 my $fileblast=shift;
 open IN, "$fileblast";
 my %string2uniac=();
@@ -24,11 +24,10 @@ while(<IN>){
 close IN;
 # foreach my $k (keys %string2uniac){print "$k\t$string2uniac{$k}\n";}
 
-# issue2: at the end we need to map uniprot-ac 2 string-id, then we should use uniprot-ac as key.. so which string-id we should consider?
-# if we have more string-id (issue1) for the same uniprot-ac might happen that one of those string-id is already annotated
-# for a GO term and then we already have a corresponding uniprot-ac.. the idea is to associate the uniprot-ac with the "unannotated" string-id.
-# to this end we hacked the blastp results file adding a star to each "100.00" every time that the string-id already exists in the annotation file.
-# in this way we consider the second choice at 100% of identity if the first already exist, or the third if the first two already exist (and so on)
+# issue2: the final goal is to map uniprot-ac towards string-id, then we should use uniprot-ac as key. which string-id we should consider?
+# solution: we can associate the uniprot-ac with the "GO unannotated" string-id. to this end we 'hacked' the blastp results file adding a star
+# to each "100.00" every time that the string-id already exists in the GOA annotation file. in this way we consider the second choice at 100% of
+# identity if the first already exist, or the third if the first two already exist (and so on)
 my $filegoa= shift;
 my %stringan=();
 open IN, "$filegoa";
@@ -48,6 +47,7 @@ foreach my $k (keys %string2uniac){
 }
 # foreach my $k (keys %stringstr){print "$k $stringstr{$k}\n"};
 
+## NB: in `blast_enrichment.pl` we check that the picked couple of identifiers blast recovered does not exist in the GOA mapping file
 open IN, "$fileblast";
 open OUT, "> $fileblast."."hacked";
 while(<IN>){

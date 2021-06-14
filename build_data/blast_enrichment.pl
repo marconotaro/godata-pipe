@@ -8,6 +8,7 @@ use Time::HiRes qw(time);
 
 my $start= time;
 
+## here we check that the picked couple of identifiers blast recovered does not exist in the GOA mapping file
 my $fileblasthacked=shift;
 open IN, "$fileblasthacked";
 my %uniac2string=();
