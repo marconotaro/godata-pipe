@@ -22,17 +22,17 @@ my $start= time;
 ##    stringv: the *current* release version of STRING DB as reported in 'https://string-db.org/cgi/access.pl?footer_active_subpage=archive'
 ##       It can be written in the following format: v<string.version> (eg: v11.0);
 
-##    NB: 'taxon', 'org' and 'com' parameters must be related. In other words, the following combinations are possible:
-##  3702 arath arabidopsis
-##  6239 caeel worm
-##  9031 chick chicken
-##  7955 danre zebrafish
-##  44689 dicdi dicty
-##  7227 drome fly
-##  9606 human human
-##  10090 mouse mouse
-##  10116 rat rat
-##  559292 yeast yeast
+##  NB: 'taxon', 'org' and 'com' parameters must be related. In other words, the following combinations are possible:
+##      3702    arath   arabidopsis
+##      6239    caeel   worm
+##      9031    chick   chicken
+##      7955    danre   zebrafish
+##      44689   dicdi   dicty
+##      7227    drome   fly
+##      9606    human   human
+##      10090   mouse   mouse
+##      10116   rat     rat
+##      559292  yeast   yeast
 
 ## call the perl script, an example: perl download_data.pl 6239 caeel worm 16jun20 v11.0
 my $taxon= shift;
